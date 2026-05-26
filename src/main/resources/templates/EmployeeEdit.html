@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<title>WELCOME</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<div class="card">
+
+<div class="card-header bg-primary text-white text-center">
+<h3>WELCOME TO SK EMPLOYEE DETAILS UPDATE PAGE </h3>
+</div>
+
+<div class="card-body">
+<form th:action="@{/sk/update}" method="POST" th:object="${Employee}">
+ Employee Id <input type="text" th:field="*{employeeid}" readonly class="form-control"/>
+
+ NAME <input type="text" th:field="*{employeename}" class="form-control"/>
+
+ PHONE
+ <input type="text" th:field="*{phone}" class="form-control"/>
+
+<div class="form-group">
+DEPARTMENT
+  <select th:field="*{dept}" class="form-control">
+  <option value="select your department">-SELECT-</option>
+  <option value="Cutting">Cutting Department</option>
+ <option value="Meachining">Machining Department</option>
+  <option value="sales">Sales Department</option>
+ </select>
+ </div>
+ <div class="form-group">
+Salary
+  <input type="text" th:field="*{salary}" class="form-control"/>
+ </div>
+<div class="form-group">
+JOINING DATE
+<input type="date" th:field="*{joiningDate}" class="form-control" placeholder="yyyy-mm-dd"/>
+</div>
+
+<div class="form-group">
+   ADDRESS
+ <input type="text" th:field="*{address}" class="form-control"/>
+ </div>
+<button type="submit" class="btn btn-success">UPDATE</button>
+</form>
+</div>
+</div>
+</body>
+
+</html>

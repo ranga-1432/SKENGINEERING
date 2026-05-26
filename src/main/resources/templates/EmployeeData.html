@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<title>WELCOME</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+<div class="card">
+<div class="card-header bg-primary text-white text-center">
+<h3>WELCOME TO SK ENGINEERING EMPLOYEE DATA PAGE</h3>
+</div>
+
+<div class="card-body">
+<a th:href="@{/sk/register}" class="btn btn-warning"><< REGISTER</a>
+<table class="table table-hover">
+<tr class="bg-info text-white">
+<th>Employee ID</th>
+<th>NAME</th>
+<th>Phone</th>
+<th>DEPARTMENT</th>
+<th>SALARY</th>
+<th>JOINING DATE</th>
+<th>ADDRESS</th>
+<th>OPERATIONS</th>
+</tr>
+<tr th:each="ob:${emps}">
+<td>[[${ob.employeeid}]]</td>
+<td>[[${ob.employeename}]]</td>
+<td>[[${ob.phone}]]</td>
+<td>[[${ob.dept}]]</td>
+<td>[[${ob.salary}]]</td>
+<td>[[${ob.joiningDate}]]</td>
+<td>[[${ob.address}]]</td>
+<td>
+<a th:href="@{/sk/delete(id=${ob.Employeeid})}" 
+class="btn btn-danger">DELETE</a> |
+<a th:href="@{/sk/edit(id=${ob.Employeeid})}" 
+class="btn btn-warning">EDIT</a>
+</td>
+</tr>
+
+</table>
+</div>
+<!--Card body end-->
+<div class="card-footer bg-info text-white" th:if="${message!=null}">
+[[${message}]]
+</div>
+<!--Card footer end-->
+</div>
+<!--card end-->
+</div>
+<!--contaner end-->
+</body>
+</html>
+
